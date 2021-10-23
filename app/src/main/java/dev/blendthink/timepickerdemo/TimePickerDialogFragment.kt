@@ -17,7 +17,7 @@ class TimePickerDialogFragment : DialogFragment() {
         try {
             listener = context as OnTimeSetListener
         } catch (e: ClassCastException) {
-            throw ClassCastException(("$context must implement OnTimeSetListener"))
+            throw ClassCastException("$context must implement OnTimeSetListener")
         }
     }
 
