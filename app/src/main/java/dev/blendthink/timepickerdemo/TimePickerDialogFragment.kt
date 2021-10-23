@@ -20,4 +20,8 @@ class TimePickerDialogFragment : DialogFragment(), TimePickerDialog.OnTimeSetLis
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         Log.d("onTimeSet", "hourOfDay: $hourOfDay, minute: $minute")
     }
+
+    companion object {
+        const val TAG = "time_picker"
+    }
 }
