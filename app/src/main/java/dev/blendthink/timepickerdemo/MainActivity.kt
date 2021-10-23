@@ -1,15 +1,13 @@
 package dev.blendthink.timepickerdemo
 
-import android.annotation.SuppressLint
-import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
+class MainActivity : AppCompatActivity(), OnTimeSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
