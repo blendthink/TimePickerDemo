@@ -2,6 +2,7 @@ package dev.blendthink.timepickerdemo
 
 import android.app.Dialog
 import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
@@ -9,17 +10,14 @@ import java.util.*
 
 class TimePickerDialogFragment : DialogFragment() {
 
-    private lateinit var listener: TimePickerDialog.OnTimeSetListener
+    private lateinit var listener: OnTimeSetListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
-            listener = context as TimePickerDialog.OnTimeSetListener
+            listener = context as OnTimeSetListener
         } catch (e: ClassCastException) {
-            throw ClassCastException(
-                (context.toString() +
-                        " must implement TimePickerDialog.OnTimeSetListener")
-            )
+            throw ClassCastException(("$context must implement OnTimeSetListener"))
         }
     }
 
