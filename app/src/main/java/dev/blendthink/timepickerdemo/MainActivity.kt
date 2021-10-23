@@ -1,10 +1,15 @@
 package dev.blendthink.timepickerdemo
 
+import android.annotation.SuppressLint
+import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.TextView
+import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -13,5 +18,10 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             TimePickerDialogFragment().show(supportFragmentManager, TimePickerDialogFragment.TAG)
         }
+    }
+
+    override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
+        val textView = findViewById<TextView>(R.id.time_text) ?: return
+        textView.text = "hourOfDay: $hourOfDay, minute: $minute"
     }
 }
